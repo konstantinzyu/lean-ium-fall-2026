@@ -250,10 +250,20 @@ section hw
   -- Define any functions with the following types.
   -- If you can't, explain why
 
-  def ex1 : α → β → α := sorry
-  def ex2 : (α → β → γ) → β → α → γ := sorry
-  def ex3 : (α → (β → γ)) → (α → β) → α → γ := sorry
-  def ex4 : ((α → β) → γ) → (β → γ → δ) → (α → β) → α → δ := sorry
+  def ex1 : α → β → α := λ x _ ↦ x
+
+  def ex2 : (α → β → γ) → β → α → γ := λ f x y ↦ f y x
+
+  def ex3 : (α → (β → γ)) → (α → β) → α → γ
+  := λ f g x ↦ f x (g x)
+
+  def ex4 : ((α → β) → γ) → (β → γ → δ) → (α → β) → α → δ
+  := λ f g h x ↦ g (h x) (f h)
+
   def ex5 : (α → β) → β → α := sorry
+  /-
+  если из утверждения A следует утверждение B,
+  то обратное не обязательно верно (из B следует A)
+  -/
 
 end hw
