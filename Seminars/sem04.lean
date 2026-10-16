@@ -215,7 +215,6 @@ inductive Eq' {α : Type} (a : α) : α → Prop where
 #check Eq'.casesOn
 #check Eq'.rec
 
-#check Eq.trans
 theorem Eq'.symm {α : Type} {a b : α} (h : Eq' a b) : Eq' b a :=
   Eq'.rec Eq'.refl h
 
